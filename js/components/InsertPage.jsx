@@ -1,4 +1,4 @@
-import { Button, Flex, Heading, HStack, Input, VStack } from "@chakra-ui/react";
+import { Button, Flex, Heading, HStack, Input, Link, Spacer, Text, VStack } from "@chakra-ui/react";
 
 export default function InsertPage() {
     const insertPlayer = (event) => {
@@ -28,31 +28,38 @@ export default function InsertPage() {
             document.getElementById("weight").value = "";
             document.getElementById("country").value = "";
         });
+
     }
 
     return (
         <div>
-            <Heading as='h1' color='purple.700' fontSize='4xl' mb={12} mt='55px' textAlign="center"> Insert a player into NBA database! </Heading>
+            <Heading as='h1' color='purple.700' fontSize='4xl' mt='55px' textAlign="center"> Haven&apos;t found your favourite players? </Heading>
+            <Text fontSize='3xl' mb={12} textAlign="center">Help others by inserting your info about them!</Text>
+
             <Flex justifyContent="center" alignItems="center" flexWrap="wrap">
                 <VStack>
-                    <HStack>
-                        <Input id='firstName' variant='outline' placeholder='First Name' width='50%' />
-                        <Input id='lastName' variant='outline' placeholder='Last Name' width='50%' />
-                    </HStack>
+                    <Input id='firstName' variant='outline' placeholder='First Name' width='150%' />
+                    <Input id='lastName' variant='outline' placeholder='Last Name' width='150%' />
 
-                    <VStack>
-                        <Input id='team' variant='outline' placeholder='Team' width='100%' />
-                        <Input id='position' variant='outline' placeholder='Position' width='100%' />
-                    </VStack>
-                    <HStack>
+                    <Input id='team' variant='outline' placeholder='Team' width='150%' />
+                    <Input id='position' variant='outline' placeholder='Position' width='150%' />
 
-                        <Input id='number' variant='outline' placeholder='Number' />
-                        <Input id='weight' variant='outline' placeholder='Weight' />
-                        <Input id='country' variant='outline' placeholder='Country' />
-                    </HStack>
-                    <Button colorScheme='purple' variant='solid' onClick={insertPlayer}>
+                    <Input id='number' variant='outline' placeholder='Number' width='150%' />
+                    <Input id='weight' variant='outline' placeholder='Weight' width='150%' />
+                    <Input id='country' variant='outline' placeholder='Country' width='150%' />
+                    <HStack>
+                        <Button colorScheme='purple' variant='solid' onClick={insertPlayer}>
                             Submit
                         </Button>
+                        <Spacer />
+                        <Link href='/'>
+                            <Button colorScheme='purple' variant='outline'>
+                                Return to main page
+                            </Button>
+                        </Link>
+
+                    </HStack>
+
                 </VStack>
 
             </Flex>
