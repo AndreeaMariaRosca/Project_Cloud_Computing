@@ -19,9 +19,27 @@ export default function MainPage() {
             console.log(error);
         }
     }, []);
+    const deletePlayer = (event) => {
+        event.preventDefault();
+        const id = event.target.id;
+        try {
+            fetch(`/api/players?id=${id}`, {
+                method: 'DELETE',
+            })
+                .then(response => response.json())
+                .then(json => {
+                    setPlayers(players.filter(player => player._id !== id));
+                });
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
     return (
         <div>
-            <Heading as='h1' color='purple.700' fontSize='4xl' mb={12} mt='55px' textAlign="center">NBA Basketball Players</Heading>
+            <Heading as='h1' color='purple.700' fontSize='4xl' mt='55px' textAlign="center">NBA&apos;s Hub App</Heading>
+            <Text fontSize='3xl' mb={12} textAlign="center">Find info about your favourite NBA players!</Text>
+
             <Grid templateColumns="repeat(4, 1fr)" gap={2} overflowX="auto">
                 {players.map(player => (
                     <Card maxW='sm' key={player._id} flexBasis="33.33%" p="4" position='relative' bg='gray.200' m={[2, 3]}>
@@ -38,18 +56,21 @@ export default function MainPage() {
                                 </Flex>
                                 <Text fontSize='lg' lineHeight="1rem">{player.team} </Text>
 
-                                <Divider borderColor='gray'/>
 
-                                <Flex direction='row'>
-                                    <Icon as={MdOutlinePersonPinCircle} w='20px' h='20px' me='6px' color='#555AA1' />
+                            </Stack>
+                        </CardBody>
+                        <Divider borderColor='gray' />
 
+                        <CardFooter>
+                            <Flex direction='row'>
+                                <HStack>
+                                    <Icon as={MdOutlinePersonPinCircle} w='20px' h='20px' me='6px' color='pink.600' />
                                     <Text fontSize='lg'>{player.position}</Text>
 
                                     <Spacer />
                                     <Flex>
                                         <Text fontSize='lg'>{player.weight} </Text>
-                                        <Icon as={GiWeight} w='20px' h='20px' me='6px' color='pink.600' />
-
+                                        <Icon as={GiWeight} w='20px' h='20px' me='6px' color='purple.800' />
                                     </Flex>
 
                                     <Spacer />
@@ -57,11 +78,14 @@ export default function MainPage() {
                                     <Icon as={BsFillFlagFill} w='20px' h='20px' me='6px' color='#555AA1' />
 
                                     <Text fontSize='lg'>{player.country}</Text>
+                                </HStack>
 
-                                </Flex>
-                            </Stack>
-                        </CardBody>
+                            </Flex>
 
+                        </CardFooter>
+                        <Button  id={player._id} colorScheme='purple' variant='solid' onClick={deletePlayer}>
+                            Delete
+                        </Button>
                     </Card>
 
                 ))}
