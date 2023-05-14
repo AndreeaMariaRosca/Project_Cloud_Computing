@@ -6,7 +6,6 @@ import { BsFillFlagFill } from 'react-icons/bs';
 import { useEffect, useState } from "react";
 export default function MainPage() {
     const [players, setPlayers] = useState([]);
-    let teamImg = 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80';
 
     useEffect(() => {
         try {
@@ -21,7 +20,7 @@ export default function MainPage() {
         }
     }, []);
     return (
-        <div backgroundColor='blue'>
+        <div>
             <Heading as='h1' color='purple.700' fontSize='4xl' mb={12} mt='55px' textAlign="center">NBA Basketball Players</Heading>
             <Grid templateColumns="repeat(4, 1fr)" gap={2} overflowX="auto">
                 {players.map(player => (
