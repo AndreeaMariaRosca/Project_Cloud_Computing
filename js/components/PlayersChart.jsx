@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Chart, registerables } from 'chart.js';
-import { Flex, Heading } from '@chakra-ui/react'
+import { VStack, Heading, Text, Link, Button } from '@chakra-ui/react'
 
 
 Chart.register(...registerables);
@@ -49,7 +49,7 @@ function PlayersChart() {
                     {
                         label: 'Number of Players for each Position',
                         data: playerCounts,
-                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        backgroundColor: '#D6BCFA',
                     },
                 ],
             },
@@ -78,10 +78,19 @@ function PlayersChart() {
 
     return (
         <div>
-            <Heading as='h1' color='purple.700' fontSize='4xl' mt='35px' mb={12} textAlign="center">NBA&apos;s Hub App</Heading>
-            <Flex width='55%' justifyContent='center' alignItems='center'>
-                <canvas id="playersChart" ></canvas>
-            </Flex>
+            <VStack alignItems='center'>
+                <Heading as='h1' color='purple.700' fontSize='3xl' mt='35px' mb={12} textAlign="center">NBA Position Stats</Heading>
+                <canvas id="playersChart" width="150" height="50" ></canvas>
+                <br />
+                <Text fontSize='lg' mb={12} textAlign="center" mt='55px'>For more stats, click
+                    <Link href='https://app.balldontlie.io/' color='#553C9A' as='b'> here</Link>
+                    !</Text>
+                <Link href='/'>
+                    <Button colorScheme='purple' variant='solid'>
+                        Return to main page
+                    </Button>
+                </Link>
+            </VStack>
         </div>
     );
 }

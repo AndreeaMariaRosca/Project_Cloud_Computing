@@ -1,4 +1,4 @@
-import { Card, CardBody, Grid, Image, Stack, Heading, Text, Divider, Button, ButtonGroup, Icon, Center, HStack, Flex, Spacer, CardFooter, Box, Link, VStack } from '@chakra-ui/react'
+import { Card, CardBody, Grid, Stack, Heading, Text, Divider, Button, Icon, HStack, Flex, Spacer, CardFooter, Link, VStack } from '@chakra-ui/react'
 import { MdOutlineNumbers, MdOutlinePersonPinCircle } from 'react-icons/md';
 import { GiWeight } from 'react-icons/gi';
 import { BsFillFlagFill } from 'react-icons/bs';
@@ -41,11 +41,19 @@ export default function MainPage() {
                 <VStack>
                     <Heading as='h1' color='purple.700' fontSize='4xl' mt='35px' textAlign="center">NBA&apos;s Hub App</Heading>
                     <Text fontSize='3xl' mb={12} textAlign="center">Find info about your favourite NBA players!</Text>
-                    <Link href='/insert'>
-                        <Button colorScheme='purple' variant='outline'>
-                            Add a new player
-                        </Button>
-                    </Link>
+                    <HStack>
+                        <Link href='/insert'>
+                            <Button colorScheme='purple' variant='outline'>
+                                Add a new player
+                            </Button>
+                        </Link>
+                        <Link href='/stats'>
+
+                            <Button bg='pink.600' textColor='white' variant='solid'>
+                                See some stats!
+                            </Button>
+                        </Link>
+                    </HStack>
                 </VStack>
 
             </Flex>
