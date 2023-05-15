@@ -42,7 +42,7 @@ export default function InsertPage() {
                     <Input id='lastName' variant='outline' placeholder='Last Name' width='150%' type='text' />
 
                     <Input id='team' variant='outline' placeholder='Team' width='150%' type='text' />
-                    <Select id='position' placeholder='Select option' width='150%' color='blackAlpha.600'>
+                    <Select id='position' placeholder='Select position' width='150%' color='blackAlpha.600'>
                         <option value='option1'>Guard</option>
                         <option value='option2'>Center</option>
                         <option value='option3'>Forward</option>
