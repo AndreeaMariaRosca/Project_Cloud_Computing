@@ -1,4 +1,4 @@
-import { Card, CardBody, Grid, Image, Stack, Heading, Text, Divider, Button, ButtonGroup, Icon, Center, HStack, Flex, Spacer, CardFooter, Box } from '@chakra-ui/react'
+import { Card, CardBody, Grid, Image, Stack, Heading, Text, Divider, Button, ButtonGroup, Icon, Center, HStack, Flex, Spacer, CardFooter, Box, Link, VStack } from '@chakra-ui/react'
 import { MdOutlineNumbers, MdOutlinePersonPinCircle } from 'react-icons/md';
 import { GiWeight } from 'react-icons/gi';
 import { BsFillFlagFill } from 'react-icons/bs';
@@ -37,8 +37,18 @@ export default function MainPage() {
     }
     return (
         <div>
-            <Heading as='h1' color='purple.700' fontSize='4xl' mt='55px' textAlign="center">NBA&apos;s Hub App</Heading>
-            <Text fontSize='3xl' mb={12} textAlign="center">Find info about your favourite NBA players!</Text>
+            <Flex justifyContent="center" mb='30px'>
+                <VStack>
+                    <Heading as='h1' color='purple.700' fontSize='4xl' mt='35px' textAlign="center">NBA&apos;s Hub App</Heading>
+                    <Text fontSize='3xl' mb={12} textAlign="center">Find info about your favourite NBA players!</Text>
+                    <Link href='/insert'>
+                        <Button colorScheme='purple' variant='outline'>
+                            Add a new player
+                        </Button>
+                    </Link>
+                </VStack>
+
+            </Flex>
 
             <Grid templateColumns="repeat(4, 1fr)" gap={2} overflowX="auto">
                 {players.map(player => (
@@ -83,7 +93,7 @@ export default function MainPage() {
                             </Flex>
 
                         </CardFooter>
-                        <Button  id={player._id} colorScheme='purple' variant='solid' onClick={deletePlayer}>
+                        <Button id={player._id} colorScheme='purple' variant='solid' onClick={deletePlayer}>
                             Delete
                         </Button>
                     </Card>
