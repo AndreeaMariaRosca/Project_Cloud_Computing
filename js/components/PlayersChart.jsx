@@ -3,8 +3,8 @@ import axios from 'axios';
 import { Chart, registerables } from 'chart.js';
 import { VStack, Heading, Text, Link, Button } from '@chakra-ui/react'
 
-
 Chart.register(...registerables);
+
 function PlayersChart() {
     const [playerData, setPlayerData] = useState([]);
 

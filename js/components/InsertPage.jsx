@@ -28,7 +28,6 @@ export default function InsertPage() {
             document.getElementById("weight").value = "";
             document.getElementById("country").value = "";
         });
-
     }
 
     return (
@@ -61,7 +60,6 @@ export default function InsertPage() {
                                 Return to main page
                             </Button>
                         </Link>
-
                     </HStack>
 
                 </VStack>
